@@ -1,9 +1,6 @@
 // Imports
-const webdriver = require('selenium-webdriver')
-const By = webdriver.By
-const Key = webdriver.Key
-const chai = require('chai')
-const expect  = chai.expect
+const { Builder, By, Key } = require('selenium-webdriver')
+const { expect } = require('chai')
 
 // Variables
 let driver
@@ -12,7 +9,7 @@ const sendText = 'Hello world from selenium!'
 describe('UI testing not following Page Object Model pattern ', () => {
 
     before(async function () {
-        driver = new webdriver.Builder()
+        driver = new Builder()
             .forBrowser('chrome')
             .build()
     

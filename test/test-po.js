@@ -1,7 +1,7 @@
 // Imports
-const webdriver = require('selenium-webdriver')
-const chai = require('chai')
-const expect  = chai.expect
+const { Builder } = require('selenium-webdriver')
+const { expect } = require('chai')
+
 const searchPage = require("./page-objects/SearchPage.po").SearchPage
 
 // Variables
@@ -10,7 +10,7 @@ const sendText = 'Hello world from selenium!'
 describe('UI testing following Page Object Model pattern ', () => {
     
     before(async function () {
-        driver = new webdriver.Builder()
+        driver = new Builder()
             .forBrowser('chrome')
             .build()
     

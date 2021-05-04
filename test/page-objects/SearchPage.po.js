@@ -1,5 +1,4 @@
-const By = require('selenium-webdriver').By
-const Key = require('selenium-webdriver').Key
+const {  By, Key } = require('selenium-webdriver')
 
 class SearchPage {
 
