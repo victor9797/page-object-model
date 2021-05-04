@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "example": "node index.js",
-    "mocha": "mocha test/test.js --timeout 100000"
+    "mocha": "mocha test/test.js --timeout 100000",
+    "mocha-po": "mocha test/test-po.js --timeout 100000"
   },
   "author": "Victor & JC",
   "license": "ISC",
@@ -13,7 +14,6 @@
     "chai": "^4.3.4",
     "chromedriver": "^90.0.0",
     "mocha": "^8.3.2",
-    "selenium-webdriver": "^4.0.0-beta.3",
-    "@oracle/oraclejet-webdriver": "latest"
+    "selenium-webdriver": "^4.0.0-beta.3"
   }
 }

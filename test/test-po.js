@@ -1,45 +1,40 @@
 // Imports
 const webdriver = require('selenium-webdriver')
-const By = webdriver.By
-const Key = webdriver.Key
 const chai = require('chai')
 const expect  = chai.expect
+const searchPage = require("./page-objects/SearchPage.po").SearchPage
 
 // Variables
-let driver
 const sendText = 'Hello world from selenium!'
 
-describe('UI testing not following Page Object Model pattern ', () => {
-
+describe('UI testing following Page Object Model pattern ', () => {
+    
     before(async function () {
         driver = new webdriver.Builder()
             .forBrowser('chrome')
             .build()
     
         await driver.get("https://google.com")
+        searchPage.initialize(driver)
     });
 
     it('Search box is not null', async function () {
-        const input = await driver.findElement(By.name("q"))
+        const input = await searchPage.getInput();
         expect(input).not.to.be.null;
     });
 
     it('Search on Google passes', async  function() {
-        
-        const input = await driver.findElement(By.name("q"))
-        await input.sendKeys(sendText, Key.ENTER)
+        await searchPage.writeText(sendText);
     })
 
     it('Get search box text passes', async  function() {
-        const input = await driver.findElement(By.name("q"))
-        const value = await input.getAttribute('value')
-        expect(value).to.equal(sendText)
+        const searchText = await searchPage.getText()
+        expect(searchText).to.equal(sendText)
     })
 
     after(async () => {
-        driver.quit()
+        searchPage.cleanup()
     }); 
-
 });
 
 async function sleep(ms) {
