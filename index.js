@@ -1,9 +1,7 @@
-const webdriver = require('selenium-webdriver')
-const By = require('selenium-webdriver').By
-const Key = require('selenium-webdriver').Key
+const { Builder, By, Key } = require('selenium-webdriver')
 
 function getChromeDriver() {
-    return new webdriver.Builder()
+    return new Builder()
         .forBrowser('chrome')
         .build()
 }
@@ -21,6 +19,3 @@ async function startTest() {
 }
 
 startTest()
-
-
-//         "test:invoice": "ts-mocha -p ./tests/integ/tsconfig.json --opts ./tests/integ/mocha-mock.opts --grep='^ApprovalConfigInvoiceMockBAT Init tests should pass .*$'"

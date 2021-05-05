@@ -1,5 +1,9 @@
 const {  By, Key } = require('selenium-webdriver')
 
+/**
+ * POM class for Google search page.
+ * We would have one of these classes for each page we need to test.
+ */
 class SearchPage {
 
     constructor() {

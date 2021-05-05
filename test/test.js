@@ -1,11 +1,10 @@
-// Imports
 const { Builder, By, Key } = require('selenium-webdriver')
 const { expect } = require('chai')
 
-// Variables
 let driver
 const sendText = 'Hello world from selenium!'
 
+// Approach where POM pattern is not followed. The tests have to care about id, css and attributes from the page
 describe('UI testing not following Page Object Model pattern ', () => {
 
     before(async function () {
